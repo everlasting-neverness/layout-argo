@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 :root {
   --light: #07de4b;
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: #eee;
 }
 
@@ -24,8 +24,8 @@ body {
   z-index: -1;
 
   display: block;
-  background: url('./pics/office-main-back.jpeg');
-  background-size:cover;
+  background: url("./pics/office-main-back.jpeg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
@@ -43,34 +43,44 @@ body {
   max-width: 1200px;
   display: grid;
   grid-template-areas:
-    'logo long-placeholder long-placeholder long-placeholder long-placeholder long-placeholder'
-    'commercial commercial commercial commercial about imageholder1'
-    'imageholder2 services portfolio imageholder3 imageholder4 blog'
-    'middle-placeholder middle-placeholder imageholder5 imageholder6 contacts short-placeholder';
+    "logo long-placeholder long-placeholder long-placeholder long-placeholder long-placeholder"
+    "commercial commercial commercial commercial about imageholder1"
+    "imageholder2 services portfolio imageholder3 imageholder4 blog"
+    "middle-placeholder middle-placeholder imageholder5 imageholder6 contacts short-placeholder";
   grid-template-columns: 200px 200px 200px 200px 200px 200px;
   text-align: center;
   grid-gap: 0;
-
 }
 
 .logo,
-.about,
-.blog,
-.services,
-.portfolio,
-.contacts {
+.block-links {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  transition: 0.4s;
+}
+
+.block-links {
+  width: 100%;
+  height: 100%;
+  color: #eee;
+  text-decoration: none;
+}
+
+.block-links:hover {
+  color: #fff;
+  font-size: 4rem;
 }
 
 .content .far {
   font-size: 3.2rem;
   align-self: center;
+  padding: 10px;
 }
 
 .label {
+  padding: 10px;
   align-self: center;
   width: 100%;
   font-size: 1.2rem;
@@ -96,6 +106,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  transition: 0.4s;
 }
 
 .commercial h2 {
@@ -132,12 +143,12 @@ body {
 
 .imageholder1 {
   grid-area: imageholder1;
-  background: url('https://source.unsplash.com/200x200/?interier');
+  background: url("https://source.unsplash.com/200x200/?interier");
 }
 
 .imageholder2 {
   grid-area: imageholder2;
-  background: url('https://source.unsplash.com/200x200/?interier');
+  background: url("https://source.unsplash.com/200x200/?interier");
 }
 
 .services {
@@ -152,12 +163,12 @@ body {
 
 .imageholder3 {
   grid-area: imageholder3;
-  background: url('https://source.unsplash.com/200x200/?interier,hall');
+  background: url("https://source.unsplash.com/200x200/?interier,hall");
 }
 
 .imageholder4 {
   grid-area: imageholder4;
-  background: url('https://source.unsplash.com/200x200/?interier,bathroom');
+  background: url("https://source.unsplash.com/200x200/?interier,bathroom");
 }
 
 .blog {
@@ -171,12 +182,12 @@ body {
 
 .imageholder5 {
   grid-area: imageholder5;
-  background: url('https://source.unsplash.com/200x200/?interier,livingroom');
+  background: url("https://source.unsplash.com/200x200/?interier,livingroom");
 }
 
 .imageholder6 {
   grid-area: imageholder6;
-  background: url('https://source.unsplash.com/200x200/?kitchen');
+  background: url("https://source.unsplash.com/200x200/?kitchen");
 }
 
 .contacts {
@@ -188,12 +199,125 @@ body {
   grid-area: short-placeholder;
 }
 
+footer:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  background: #eee;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 footer {
+  margin-top: 75px;
   border-top: 2px solid #eee;
-  /* background: #eee; */
-  opacity: 0.2;
+}
+
+.footer-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px auto;
+  width: 75%;
+}
+
+.brand {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .footer-menu-items {
+  font-size: 1.2rem;
+  transition: 0.4s;
+}
 
+.footer-menu-items:hover {
+  padding: 0 10px;
+  cursor: pointer;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+
+.footer-menu-items .far {
+  font-size: 1.8rem;
+}
+
+.footer-menu-items a {
+  display: inline-block;
+  margin-left: 15px;
+  text-decoration: none;
+  color: #eee;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 600px;
+    grid-template-areas:
+      "logo logo logo"
+      "commercial commercial commercial"
+      "about imageholder1 services"
+      "imageholder2 portfolio imageholder3"
+      "blog imageholder4 contacts";
+  }
+
+  .logo {
+    width: 600px;
+    height: 100px;
+  }
+
+  .footer-block {
+    flex-wrap: wrap;
+  }
+
+  .brand,
+  .footer-menu-items {
+    padding: 15px;
+    padding-top: 0;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 630px) {
+  .container {
+    max-width: 400px;
+
+    grid-template-areas:
+      "logo"
+      "commercial"
+      "about services"
+      "portfolio imageholder3"
+      "blog imageholder4 contacts";
+  }
+
+  .logo {
+    width: 400px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 500px;
+    grid-template-areas:
+      "logo"
+      "commercial"
+      "about"
+      "services"
+      "portfolio"
+      "blog"
+      "contacts";
+  }
+
+  .logo {
+    width: 320px;
+    height: 80px;
+  }
 }
