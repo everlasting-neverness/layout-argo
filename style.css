@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root {
+  --light: #07de4b;
+  --dark: #1b9642;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #eee;
+}
+
+#root:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background: url('./pics/office-main-back.jpeg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-areas:
+    'logo long-placeholder long-placeholder long-placeholder long-placeholder long-placeholder'
+    'content content content content about imageholder1'
+    'imageholder2 services portfolio imageholder3 imageholder4 blog'
+    'middle-placeholder middle-placeholder imageholder5 imageholder6 contacts short-placeholder';
+  grid-template-columns: 200px 200px 200px 200px 200px 200px;
+  text-align: center;
+  grid-gap: 0;
+
+}
+
+.logo,
+.about,
+.blog,
+.services,
+.portfolio,
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content span,
+.far {
+  display: block;
+}
+
+.logo {
+  grid-area: logo;
+  background: #19e058;
+}
+
+.logo h1 {
+  font-size: 2.7rem;
+}
+
+.placeholder {
+
+}
+
+.long-placeholder {
+  grid-area: long-placeholder;
+}
+
+.content {
+  grid-area: content;
+  text-align: right;
+}
+
+.about {
+  grid-area: about;
+  background: var(--dark);
+}
+
+.imageholder,
+.logo,
+.about,
+.services,
+.portfolio,
+.blog,
+.contacts {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.imageholder1 {
+  grid-area: imageholder1;
+  background: url('https://source.unsplash.com/200x200/?interier');
+}
+
+.imageholder2 {
+  grid-area: imageholder2;
+  background: url('https://source.unsplash.com/200x200/?interier');
+}
+
+.services {
+  grid-area: services;
+  background: var(--dark);
+}
+
+.portfolio {
+  grid-area: portfolio;
+  background: var(--light);
+}
+
+.imageholder3 {
+  grid-area: imageholder3;
+  background: url('https://source.unsplash.com/200x200/?interier,hall');
+}
+
+.imageholder4 {
+  grid-area: imageholder4;
+  background: url('https://source.unsplash.com/200x200/?interier,bathroom');
+}
+
+.blog {
+  grid-area: blog;
+  background: var(--light);
+}
+
+.middle-placeholder {
+  grid-area: middle-placeholder;
+}
+
+.imageholder5 {
+  grid-area: imageholder5;
+  background: url('https://source.unsplash.com/200x200/?interier,livingroom');
+}
+
+.imageholder6 {
+  grid-area: imageholder6;
+  background: url('https://source.unsplash.com/200x200/?kitchen');
+}
+
+.contacts {
+  grid-area: contacts;
+  background: var(--dark);
+}
+
+.short-placeholder {
+  grid-area: short-placeholder;
+}
