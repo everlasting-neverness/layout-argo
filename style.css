@@ -44,7 +44,7 @@ body {
   display: grid;
   grid-template-areas:
     'logo long-placeholder long-placeholder long-placeholder long-placeholder long-placeholder'
-    'content content content content about imageholder1'
+    'commercial commercial commercial commercial about imageholder1'
     'imageholder2 services portfolio imageholder3 imageholder4 blog'
     'middle-placeholder middle-placeholder imageholder5 imageholder6 contacts short-placeholder';
   grid-template-columns: 200px 200px 200px 200px 200px 200px;
@@ -62,11 +62,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.content span,
-.far {
-  display: block;
+.content .far {
+  font-size: 3.2rem;
+  align-self: center;
+}
+
+.label {
+  align-self: center;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
 .logo {
@@ -78,17 +85,29 @@ body {
   font-size: 2.7rem;
 }
 
-.placeholder {
-
-}
-
 .long-placeholder {
   grid-area: long-placeholder;
 }
 
-.content {
-  grid-area: content;
+.commercial {
+  grid-area: commercial;
   text-align: right;
+  padding: 20px 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.commercial h2 {
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  width: 80%;
+}
+
+.commercial p {
+  width: 60%;
+  font-size: 0.8rem;
+  padding-top: 12px;
 }
 
 .about {
@@ -167,4 +186,14 @@ body {
 
 .short-placeholder {
   grid-area: short-placeholder;
+}
+
+footer {
+  border-top: 2px solid #eee;
+  /* background: #eee; */
+  opacity: 0.2;
+}
+
+.footer-menu-items {
+
 }
