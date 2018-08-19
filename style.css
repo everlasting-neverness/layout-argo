@@ -16,7 +16,7 @@ body {
   color: #eee;
 }
 
-#root:before {
+.root:before {
   content: "";
   position: fixed;
   left: 0;
@@ -42,12 +42,12 @@ body {
   margin: auto;
   max-width: 1200px;
   display: grid;
+  grid-template-columns: repeat(6, 1fr);
   grid-template-areas:
-    "logo long-placeholder long-placeholder long-placeholder long-placeholder long-placeholder"
+    "logo . . . . ."
     "commercial commercial commercial commercial about imageholder1"
     "imageholder2 services portfolio imageholder3 imageholder4 blog"
-    "middle-placeholder middle-placeholder imageholder5 imageholder6 contacts short-placeholder";
-  grid-template-columns: 200px 200px 200px 200px 200px 200px;
+    ". . imageholder5 imageholder6 contacts .";
   text-align: center;
   grid-gap: 0;
 }
@@ -93,10 +93,6 @@ body {
 
 .logo h1 {
   font-size: 2.7rem;
-}
-
-.long-placeholder {
-  grid-area: long-placeholder;
 }
 
 .commercial {
@@ -176,10 +172,6 @@ body {
   background: var(--light);
 }
 
-.middle-placeholder {
-  grid-area: middle-placeholder;
-}
-
 .imageholder5 {
   grid-area: imageholder5;
   background: url("https://source.unsplash.com/200x200/?interier,livingroom");
@@ -193,10 +185,6 @@ body {
 .contacts {
   grid-area: contacts;
   background: var(--dark);
-}
-
-.short-placeholder {
-  grid-area: short-placeholder;
 }
 
 footer:before {
@@ -231,15 +219,17 @@ footer {
 .brand {
   font-size: 2.5rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .footer-menu-items {
   font-size: 1.2rem;
+  text-align: center;
   transition: 0.4s;
+  padding: 0 10px;
 }
 
 .footer-menu-items:hover {
-  padding: 0 10px;
   cursor: pointer;
   border-left: 2px solid #eee;
   border-right: 2px solid #eee;
@@ -259,6 +249,7 @@ footer {
 @media (max-width: 1200px) {
   .container {
     max-width: 600px;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "logo logo logo"
       "commercial commercial commercial"
@@ -267,9 +258,30 @@ footer {
       "blog imageholder4 contacts";
   }
 
+  .imageholder5,
+  .imageholder6 {
+    display: none;
+  }
+
   .logo {
     width: 600px;
     height: 100px;
+  }
+
+  .commercial {
+    text-align: center;
+  }
+
+  .commercial h2 {
+    width: 100%;
+  }
+
+  .commercial p {
+    width: 100%;
+  }
+
+  footer {
+    margin-top: 15px;
   }
 
   .footer-block {
@@ -283,41 +295,99 @@ footer {
     min-width: 200px;
     margin: 0 auto;
   }
+
+  .footer-menu-items:hover {
+    padding: 5px 0;
+    margin-top: -15px;
+  }
 }
 
 @media (max-width: 630px) {
   .container {
     max-width: 400px;
-
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "logo"
-      "commercial"
-      "about services"
-      "portfolio imageholder3"
-      "blog imageholder4 contacts";
+      "logo logo"
+      "commercial commercial"
+      "about portfolio"
+      "imageholder3 services"
+      "contacts blog";
+  }
+
+  .imageholder1,
+  .imageholder2,
+  .imageholder4 {
+    display: none;
   }
 
   .logo {
     width: 400px;
     height: 100px;
   }
+
+  footer {
+    margin-top: 5px;
+  }
+
+  .footer-block {
+    margin-top: 0;
+  }
+
+  .footer-menu-items:hover {
+    padding: 15px 0;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .container {
-    max-width: 500px;
+    max-width: 300px;
     grid-template-areas:
       "logo"
       "commercial"
       "about"
-      "services"
       "portfolio"
+      "services"
       "blog"
       "contacts";
   }
 
+  .imageholder3 {
+    display: none;
+  }
+
   .logo {
-    width: 320px;
-    height: 80px;
+    width: 300px;
+    height: 100px;
+  }
+
+  .block-links {
+    flex-wrap: nowrap;
+  }
+
+  .label {
+    font-size: 1.5rem;
+  }
+
+  .about,
+  .services,
+  .portfolio,
+  .blog,
+  .contacts {
+    width: 100%;
+    height: 100px;
+  }
+
+  footer {
+    margin-top: 5px;
+  }
+
+  .footer-menu-items {
+    width: 100%;
+  }
+
+  .footer-menu-items a {
+    font-size: 1.3rem;
   }
 }
