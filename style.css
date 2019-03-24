@@ -227,6 +227,8 @@ footer {
   text-align: center;
   transition: 0.4s;
   padding: 0 10px;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
 }
 
 .footer-menu-items:hover {
